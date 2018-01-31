@@ -8,7 +8,7 @@ var models = {
   }),
   User: bookshelf.Model.extend({
     tableName: 'user',
-    hasTimestamps: true,
+    hasTimestamps: ['created_time', 'updated_time'],
     pets(){
       return this.hasMany(models.Pet,'userId','userId');
     },

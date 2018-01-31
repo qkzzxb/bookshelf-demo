@@ -1,2 +1,3 @@
 # node
-my node
+node app
+supervisor app
