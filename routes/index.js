@@ -1,8 +1,9 @@
 module.exports = (app) => {
   app.use('/home',require('./home'));
-  app.use('/users', require('./users'));
   app.use('/pet', require('./pet'));
   app.use('/user', require('./user'));
+  app.use('/admin', require('./admin'));
+  app.use('/upload', require('./upload'));
   //404
   app.use((req, res, next) => {
     res.json({

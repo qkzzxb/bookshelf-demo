@@ -1,4 +1,5 @@
-var bookshelf = require('./bookshelf');
+var bookshelf = require('./db');
+var md5 = require('../utils/md5');
 var models = {
   Pet: bookshelf.Model.extend({
     tableName: 'pet',
@@ -24,6 +25,20 @@ var models = {
       }
       return attr;
     }
+  }),
+  Admin: bookshelf.Model.extend({
+    tableName: 'admin',
+    hasTimestamps: ['created_time', 'updated_time'],
+    format(attr){//存
+      if(attr.password){
+        attr.password =  md5.hex_md5(attr.password);
+      }
+      return attr;
+    }
+  }),
+  Upload: bookshelf.Model.extend({
+    tableName: 'upload',
+    hasTimestamps: ['created_time', 'updated_time']
   }),
 }
 module.exports = models;
