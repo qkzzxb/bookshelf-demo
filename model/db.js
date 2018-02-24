@@ -4,7 +4,7 @@ const dbConfig = {
     host: '127.0.0.1',
     user: 'root',
     password: 'zxb325804',
-    database: 'petshop',
+    database: 'node_demo',
     charset: 'utf8'
   }
 };
