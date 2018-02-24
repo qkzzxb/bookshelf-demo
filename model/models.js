@@ -1,4 +1,5 @@
 var bookshelf = require('./db');
+bookshelf.plugin(require('bookshelf-uuid'));
 var md5 = require('../utils/md5');
 var Models = {
   Pet: bookshelf.Model.extend({
@@ -28,13 +29,15 @@ var Models = {
   }),
   Admin: bookshelf.Model.extend({
     tableName: 'admin',
+    uuid: true,
     hasTimestamps: ['created_time', 'updated_time'],
-    /* format(attr){//存
-      if(attr.password){
+    format(attr){//存
+      console.log('attr', attr)
+      /* if(attr.password){
         attr.password =  md5.hex_md5(attr.password);
-      }
+      } */
       return attr;
-    } */
+    }
   }),
   Upload: bookshelf.Model.extend({
     tableName: 'upload',
