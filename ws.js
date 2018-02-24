@@ -13,12 +13,14 @@ const wsServer = new WebSocketServer({
 })
 
 wsServer.on('connect', connection => {
-    connection.on('message', message => {
+    connection.
+    on('message', message => {
         if (message.type === 'utf8') {
             console.log('>> message content from client: ' + message.utf8Data)
             connection.sendUTF('[from server] ' + message.utf8Data)
         }
-    }).on('close', (reasonCode, description) => {
+    })
+    .on('close', (reasonCode, description) => {
         console.log('[' + new Date() + '] Peer ' + connection.remoteAddress + ' disconnected.')
     })
 })
