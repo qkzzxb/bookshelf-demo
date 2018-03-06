@@ -5,6 +5,7 @@ module.exports = (app) => {
   app.use('/admin', require('./admin'));
   app.use('/auth', require('./auth'));
   app.use('/upload', require('./upload'));
+  app.use('/booking', require('./booking'));
   //404
   app.use((req, res, next) => {
     res.json({

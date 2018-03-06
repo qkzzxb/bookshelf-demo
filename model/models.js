@@ -43,5 +43,19 @@ var Models = {
     tableName: 'upload',
     hasTimestamps: ['created_time', 'updated_time']
   }),
+  Booking: bookshelf.Model.extend({
+    tableName: 'booking',
+    hasTimestamps: true,
+    rooms: function() {
+      return this.belongsToMany(Models.Room);
+    }
+  }),
+  Room: bookshelf.Model.extend({
+    tableName: 'room',
+    hasTimestamps: true,
+    bookings: function() {
+      return this.hasMany(Models.Booking);
+    }
+  }),
 }
 module.exports = Models;
